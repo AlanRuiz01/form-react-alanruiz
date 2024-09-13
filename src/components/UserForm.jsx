@@ -27,7 +27,7 @@ const UserForm = ({ onSave, onCancel, editingUser }) => {
   };
 
   const validatePhone = (phone) => {
-    return /^\d{10}$/.test(phone); // Número de teléfono de 10 dígitos
+    return /^\d{10}$/.test(phone);
   };
 
   const handleSubmit = (e) => {
@@ -58,12 +58,12 @@ const UserForm = ({ onSave, onCancel, editingUser }) => {
     onSave(userData);
   };
   const handleCancel = () => {
-    setName(''); // Limpiar todos los campos del formulario
+    setName(''); 
     setEmail('');
     setPhone('');
     setAddress('');
-    setError(''); // Limpiar cualquier mensaje de error
-    onCancel(); // Llamar a la función onCancel pasada desde UserManager
+    setError(''); 
+    onCancel(); 
   };
   return (
     <form onSubmit={handleSubmit} className='forms'>
