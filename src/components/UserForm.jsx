@@ -57,7 +57,14 @@ const UserForm = ({ onSave, onCancel, editingUser }) => {
     const userData = { name, email, phone, address };
     onSave(userData);
   };
-
+  const handleCancel = () => {
+    setName(''); // Limpiar todos los campos del formulario
+    setEmail('');
+    setPhone('');
+    setAddress('');
+    setError(''); // Limpiar cualquier mensaje de error
+    onCancel(); // Llamar a la función onCancel pasada desde UserManager
+  };
   return (
     <form onSubmit={handleSubmit} className='forms'>
       {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -108,7 +115,7 @@ const UserForm = ({ onSave, onCancel, editingUser }) => {
 
       <div className='buttons'>
         <button type="submit">Guardar</button>
-        <button type="button" onClick={onCancel}>Cancelar</button>
+        <button type="button" onClick={handleCancel}>Cancelar</button>
       </div>
     </form>
   );
